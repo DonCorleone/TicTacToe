@@ -49,7 +49,8 @@ namespace TicTacToe
                 int? freeColumnIx = null;
                 while (!freeColumnIx.HasValue)
                 {
-                    freeColumnIx = _grid.checkIfColumnIsFree(new Random().Next(0,3));
+                    int randomVal = new Random().Next(0,3);
+                    freeColumnIx = _grid.checkIfColumnIsFree(randomVal);
                 }
                 
                 // player in term makes the move on the free column
@@ -81,7 +82,7 @@ namespace TicTacToe
                 playerIx = playerIx == 0 ? 1 : 0; // Superquick, superdirty
             }           
 
-            _grid.Print();
+           // _grid.Print();
         }
 
         private void doTheMove(Player player, int chosenColumn){

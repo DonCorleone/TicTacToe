@@ -86,6 +86,7 @@ namespace TicTacToe
 
         internal Mark FindWinnerMark()
         {
+            Print();
             // find winner in rows
             Mark winnerMark = findWinnerInRows();
             if (winnerMark == Mark.Empty)
@@ -99,14 +100,15 @@ namespace TicTacToe
 
         internal void Print()
         {
+
             var outPut = new StringBuilder();
 
             // Loop through the columns
-            for (int columnIx = 0; columnIx < _size; columnIx++)
+            for (int rowIx = 0; rowIx < _size; rowIx++)
             {
-                Console.WriteLine("-------------");
+                Console.WriteLine("----------------");
                 // Loop through the rows  
-                for (int rowIx = 0; rowIx < _size; rowIx++)
+                for (int columnIx = 0; columnIx < _size; columnIx++)
                 {
                     // if any empty cell found > exit through the gift shop
                     string value = GridProperty[rowIx, columnIx].Mark == Mark.Empty ? " " : GridProperty[rowIx, columnIx].Mark.ToString();
@@ -116,7 +118,8 @@ namespace TicTacToe
                 Console.WriteLine(outPut.ToString());
                 outPut.Clear();
             }
-            Console.WriteLine("-------------");
+            Console.WriteLine("---------------");
+            System.Threading.Thread.Sleep(1000);
         }
 
         private Mark findWinnerDiagonal()
@@ -131,7 +134,7 @@ namespace TicTacToe
             // find for equal Rows
             for (int rowIx = 0; rowIx < _size; rowIx++)
             {
-                Mark lastMark = Mark.Empty;
+                Mark lastMark = Mark.Undefined;
                 for (int columnIx = 0; columnIx < _size; columnIx++)
                 {
                     // if empty >> no winner in this row >> exit (fall down as far as possible)
@@ -139,17 +142,20 @@ namespace TicTacToe
                         return Mark.Empty;
 
                     // not same mark >> next row
-                    if (GridProperty[rowIx, columnIx].Mark != lastMark)
-                        continue;
+                    if (GridProperty[rowIx, columnIx].Mark != lastMark){
+                        if (lastMark != Mark.Undefined)
+                        {
+                            break;
+                        }else{
+                            lastMark = GridProperty[rowIx, columnIx].Mark;
+                            continue;
+                        }
+                    }
 
                     // else : if row with same marks finnised :: WINNER FOUND !!
-                    if (lastMark != Mark.Empty && lastMark == GridProperty[rowIx, columnIx].Mark && columnIx == _size - 1)
-                        return lastMark;
-
-                    lastMark = GridProperty[rowIx, columnIx].Mark;
+                    if (lastMark != Mark.Undefined && lastMark == GridProperty[rowIx, columnIx].Mark && columnIx == _size - 1)
+                        return GridProperty[rowIx, columnIx].Mark;
                 }
-                // reset cursor
-                lastMark = Mark.Empty;
             }
 
             // no winner found : the show must go on...
@@ -160,21 +166,22 @@ namespace TicTacToe
             // find for equal colums
             for (int columnIx = 0; columnIx < _size; columnIx++)
             {
-                Mark lastMark = Mark.Empty;
+                Mark lastMark = Mark.Undefined;
 
                 for (int rowIx = 0; rowIx < _size; rowIx++)
                 {
                     // if empty >> no winner in this column >> next column
                     if (GridProperty[rowIx, columnIx].Mark == Mark.Empty)
-                        continue;
+                        break;
 
                     // not same mark >> next column
-                    if (lastMark != Mark.Empty && GridProperty[rowIx, columnIx].Mark != lastMark)
-                        continue;
+                    if (lastMark != Mark.Undefined && GridProperty[rowIx, columnIx].Mark != lastMark)
+                        break;
 
                     // else : if row with same marks finnised :: WINNER FOUND !!
-                    if (lastMark != Mark.Empty && lastMark == GridProperty[rowIx, columnIx].Mark && rowIx == _size - 1)
-                        return lastMark;
+                    if (lastMark != Mark.Undefined && lastMark == GridProperty[rowIx, columnIx].Mark && rowIx == _size - 1)
+                        return GridProperty[rowIx, columnIx].Mark;
+
 
                     lastMark = GridProperty[rowIx, columnIx].Mark;
                 }
