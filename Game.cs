@@ -46,15 +46,10 @@ namespace TicTacToe
 
             while(!gameFinnished){
 
-                int columnIxInput;
-                if (!int.TryParse(Console.Read().ToString(), out columnIxInput))
-                {
-                    Console.WriteLine("So nicht!");
-                }
                 int? freeColumnIx = null;
                 while (!freeColumnIx.HasValue)
                 {
-                    freeColumnIx = _grid.checkIfColumnIsFree(columnIxInput);
+                    freeColumnIx = _grid.checkIfColumnIsFree(new Random().Next(0,3));
                 }
                 
                 // player in term makes the move on the free column
