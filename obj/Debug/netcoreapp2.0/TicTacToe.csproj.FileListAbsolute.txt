@@ -1,0 +1,10 @@
+/Users/dev/Documents/_Projektli/TicTacToe/bin/Debug/netcoreapp2.0/TicTacToe.deps.json
+/Users/dev/Documents/_Projektli/TicTacToe/bin/Debug/netcoreapp2.0/TicTacToe.runtimeconfig.json
+/Users/dev/Documents/_Projektli/TicTacToe/bin/Debug/netcoreapp2.0/TicTacToe.runtimeconfig.dev.json
+/Users/dev/Documents/_Projektli/TicTacToe/bin/Debug/netcoreapp2.0/TicTacToe.dll
+/Users/dev/Documents/_Projektli/TicTacToe/bin/Debug/netcoreapp2.0/TicTacToe.pdb
+/Users/dev/Documents/_Projektli/TicTacToe/obj/Debug/netcoreapp2.0/TicTacToe.csproj.CoreCompileInputs.cache
+/Users/dev/Documents/_Projektli/TicTacToe/obj/Debug/netcoreapp2.0/TicTacToe.AssemblyInfoInputs.cache
+/Users/dev/Documents/_Projektli/TicTacToe/obj/Debug/netcoreapp2.0/TicTacToe.AssemblyInfo.cs
+/Users/dev/Documents/_Projektli/TicTacToe/obj/Debug/netcoreapp2.0/TicTacToe.dll
+/Users/dev/Documents/_Projektli/TicTacToe/obj/Debug/netcoreapp2.0/TicTacToe.pdb
