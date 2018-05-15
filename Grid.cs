@@ -104,7 +104,7 @@ namespace TicTacToe
             var outPut = new StringBuilder();
 
             // Loop through the columns
-            for (int rowIx = 0; rowIx < _size; rowIx++)
+            for (int rowIx = _size-1; rowIx >= 0; rowIx--)
             {
                 Console.WriteLine("----------------");
                 // Loop through the rows  
